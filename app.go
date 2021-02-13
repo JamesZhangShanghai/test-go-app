@@ -2,10 +2,14 @@ package main
 
 import (
          "fmt"
-          "html"
-	  "log"
-          "net/http"
+         "html"
+	     "log"
+		 "net/http"
 	)
+
+func getNameLen(name string) int {
+	return len(name)
+}
 
 func main() {
 
