@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'go'
+        label 'my-jenkins-slave-cluster'
     }
     stages {
         stage('UnitTest') {
