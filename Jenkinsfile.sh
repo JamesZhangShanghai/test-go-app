@@ -5,10 +5,11 @@ pipeline {
     stages {
         stage('UnitTest') {
             steps {
- 
-                sh 'chmod 777 /home/jenkins/agent/workspace/pipeline-goapp/*'
-                sh 'cd /home/jenkins/agent/workspace/pipeline-goapp/'
-                sh './rununittest.sh'
+                script {
+                    if( sh(script: 'docker run --rm -v $(pwd):/go/src/gowebdemo -w /go/src/gowebdemo golang:1.11.0 /bin/bash -c "/go/src/gowebdemo/rununittest.sh"', returnStatus: true ) != 0 ){
+                       currentBuild.result = 'FAILURE'
+                    }
+                }
                 junit '*.xml'
                 script {
                     if( currentBuild.result == 'FAILURE' ) {
