@@ -5,13 +5,9 @@ pipeline {
     stages {
         stage('UnitTest') {
             steps {
-                script {
-                    sh "sleep 120"
-                    sh "chmod 777 /home/jenkins/agent/workspace/pipeline-goapp/*"
-                    if( sh(script: "/home/jenkins/agent/workspace/pipeline-goapp/rununittest.sh", returnStatus: true ) != 0 ){
-                       currentBuild.result = 'FAILURE'
-                    }
-                }
+ 
+                sh 'chmod 777 /home/jenkins/agent/workspace/pipeline-goapp/*'
+                sh '/home/jenkins/agent/workspace/pipeline-goapp/rununittest.sh'
                 junit '*.xml'
                 script {
                     if( currentBuild.result == 'FAILURE' ) {
