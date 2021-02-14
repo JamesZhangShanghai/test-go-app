@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -ex
 # remove the current app instance

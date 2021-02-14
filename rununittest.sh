@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -x
 go get -d -v golang.org/x/net/html
