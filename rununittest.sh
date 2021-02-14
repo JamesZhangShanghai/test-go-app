@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -x
+export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 go get -d -v golang.org/x/net/html
 go get -u github.com/jstemmer/go-junit-report
