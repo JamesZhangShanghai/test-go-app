@@ -6,7 +6,6 @@ pipeline {
         stage('UnitTest') {
             steps {
                 script {
-                    sh 'sleep 600'
                     if( sh(script: "rununittest.sh", returnStatus: true ) != 0 ){
                        currentBuild.result = 'FAILURE'
                     }
