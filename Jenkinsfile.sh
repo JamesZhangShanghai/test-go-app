@@ -5,11 +5,8 @@ pipeline {
     stages {
         stage('UnitTest') {
             steps {
-                sh 'export GO111MODULE=on'
-                sh 'export GOPROXY=https://goproxy.io'
                 script {
-                    sh "sleep 1800"
-                    if( sh(script: 'docker run --rm -v $(pwd):/go/src/gowebdemo -w /go/src/gowebdemo golang:1.14.0 /bin/sh -c "/go/src/gowebdemo/rununittest.sh"', returnStatus: true ) != 0 ){
+                    if( sh(script: 'docker run -e "GO111MODULE=on" -e "GOPROXY=https://goproxy.cn" --rm -v $(pwd):/go/src/gowebdemo -w /go/src/gowebdemo golang:1.14.0 /bin/sh -c "/go/src/gowebdemo/rununittest.sh"', returnStatus: true ) != 0 ){
                        currentBuild.result = 'FAILURE'
                     }
                 }
