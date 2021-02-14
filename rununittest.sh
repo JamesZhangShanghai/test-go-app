@@ -3,6 +3,7 @@
 set -x
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
+sleep 1800
 go get -d -v golang.org/x/net/html
 go get -u github.com/jstemmer/go-junit-report
 go test -v 2>&1 > tmp

@@ -6,7 +6,7 @@ pipeline {
         stage('UnitTest') {
             steps {
                 sh 'export GO111MODULE=on'
-                sh 'GOPROXY=https://goproxy.io'
+                sh 'export GOPROXY=https://goproxy.io'
                 script {
                     sh "sleep 180"
                     if( sh(script: 'docker run --rm -v $(pwd):/go/src/gowebdemo -w /go/src/gowebdemo golang:1.14.0 /bin/sh -c "/go/src/gowebdemo/rununittest.sh"', returnStatus: true ) != 0 ){
