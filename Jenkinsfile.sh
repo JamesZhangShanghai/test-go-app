@@ -7,7 +7,8 @@ pipeline {
             steps {
  
                 sh 'chmod 777 /home/jenkins/agent/workspace/pipeline-goapp/*'
-                sh '/home/jenkins/agent/workspace/pipeline-goapp/rununittest.sh'
+                sh 'cd /home/jenkins/agent/workspace/pipeline-goapp/'
+                sh './rununittest.sh'
                 junit '*.xml'
                 script {
                     if( currentBuild.result == 'FAILURE' ) {
