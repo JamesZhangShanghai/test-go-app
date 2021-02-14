@@ -1,8 +1,0 @@
-=== RUN   Test_GetNameLen_1
---- PASS: Test_GetNameLen_1 (0.00s)
-    app_test.go:8: test passed.
-=== RUN   Test_GetNameLen_2
---- PASS: Test_GetNameLen_2 (0.00s)
-    app_test.go:16: test passed.
-PASS
-ok  	_/root/code/test-go-app	0.009s
