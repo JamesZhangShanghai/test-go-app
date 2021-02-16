@@ -10,7 +10,7 @@ pipeline {
                        currentBuild.result = 'FAILURE'
                     }
                 }
-                junit './**/*.xml'
+                //junit './**/*.xml'
                 script {
                     if( currentBuild.result == 'FAILURE' ) {
                        sh(script: "echo unit test failed, please fix the errors.")
