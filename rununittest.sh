@@ -8,5 +8,6 @@ go get -u github.com/jstemmer/go-junit-report
 go test -v 2>&1 > tmp
 status=$?
 $GOPATH/bin/go-junit-report < tmp > test_output.xml
+cat test_output.xml
 
 exit ${status}
