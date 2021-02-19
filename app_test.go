@@ -16,3 +16,11 @@ func Test_GetNameLen_2(t *testing.T) {
 		t.Log("test passed.")
 	}
 }
+
+func Test_GetNameLen_3(t *testing.T) {
+	if l := getNameLen("test"); l != 4 {
+		t.Error("test failed, the length of name is not correct.")
+	} else {
+		t.Log("test passed.")
+	}
+}
