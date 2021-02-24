@@ -8,4 +8,6 @@ if [ ! -z "$(docker images -q --filter 'dangling=true')" ]; then
 fi
 
 set -ex
-docker build -t gowebdemo .
+docker build -t ${regisryAddr}/gowebdemo:v1 .
+
+docker push ${regisryAddr}/gowebdemo:v1
