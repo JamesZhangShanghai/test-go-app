@@ -20,7 +20,6 @@ pipeline {
             }
         }
         stage('Build') {
-            def registryAddr = '192.168.56.210:30500'
             steps {
                 sh './buildapp.sh'
             }
