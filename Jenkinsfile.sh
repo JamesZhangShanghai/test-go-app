@@ -30,15 +30,17 @@ pipeline {
             }
         }
         stage('Report') {
-            publishHTML (target: [
-                        allowMissing: true,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'report',
-                        reportFiles: 'index.html',
-                        reportName: 'HTML Report',
-                        reportTitles: 'Coverage Report'
-                    ])
+            steps {
+                publishHTML (target: [
+                            allowMissing: true,
+                            alwaysLinkToLastBuild: false,
+                            keepAll: true,
+                            reportDir: 'report',
+                            reportFiles: 'index.html',
+                            reportName: 'HTML Report',
+                            reportTitles: 'Coverage Report'
+                        ])
+            }
         }
     }
     post {
