@@ -35,8 +35,8 @@ pipeline {
                             allowMissing: true,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: 'report',
-                            reportFiles: 'index.html',
+                            reportDir: "./report",
+                            reportFiles: "index.html",
                             reportName: 'HTML Report',
                             reportTitles: 'Coverage Report'
                         ])
