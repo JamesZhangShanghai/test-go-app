@@ -10,5 +10,5 @@ go test -v 2>&1 > tmp
 status=$?
 $GOPATH/bin/go-junit-report < tmp > ./report/index.xml
 cat ./report/index.xml
-
+sleep 300
 exit ${status}
