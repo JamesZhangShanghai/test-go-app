@@ -37,19 +37,14 @@ pipeline {
         success {
             mail bcc: '', body: "<b>gopro build success</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'jenkins_james@126.com', mimeType: 'text/html', replyTo: '', subject: "SUCCESS CI: Project name -> ${env.JOB_NAME}", to: "jian.zhang@mavenir.com";
         }
-        always{
-            script{
-                node(any){
-                    publishHTML (target: [
-                        allowMissing: true,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'test-output',
-                        reportFiles: 'index.html',
-                        reportName: "HTML Report"
-                    ])
-                }
-            }
-        }
+        publishHTML (target: [
+            allowMissing: true,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'report',
+            reportFiles: 'index.html',
+            reportName: 'HTML Report',
+            reportTitles: 'Coverage Report'
+        ])
     }
 }
