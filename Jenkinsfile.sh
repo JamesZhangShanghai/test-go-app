@@ -2,11 +2,20 @@ pipeline {
     agent {
         label 'my-jenkins-slave-cluster'
     }
+
     stages {
+        stage('Prepare') {
+            steps {
+                sh "echo 'Checking the testbed.'"
+            }
+        }
         stage('UnitTest') {
             steps {
                 script {
-                    sh "sleep 6000"
+                    //sh "sleep 6000"
+                    sh "echo ${env.WORKSPACE}"
+                    sh "echo ${env.BUILD_ID}"
+                    sh "mkdir -p /home/workspace/test3"
                     if( sh(script: 'docker run -e "GO111MODULE=on" -e "GOPROXY=https://goproxy.cn" --rm -v $(pwd):/go/src/gowebdemo -w /go/src/gowebdemo golang:1.14.0 /bin/sh -c "/go/src/gowebdemo/rununittest.sh"', returnStatus: true ) != 0 ){
                        currentBuild.result = 'FAILURE'
                     }
