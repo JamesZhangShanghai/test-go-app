@@ -46,7 +46,7 @@ pipeline {
                             allowMissing: true,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: "./report",
+                            reportDir: "/home/workspace/${env.BUILD_TAG}/report",
                             reportFiles: "index.html",
                             reportName: 'HTML Report',
                             reportTitles: 'Coverage Report'
