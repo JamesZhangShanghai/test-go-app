@@ -40,6 +40,11 @@ pipeline {
                 sh './deployapp.sh'
             }
         }
+        stage('Helm deploy') {
+            steps {
+                sh 'sleep 30'
+            }
+        }
         stage('Report') {
             steps {
                 publishHTML (target: [

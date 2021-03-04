@@ -12,3 +12,10 @@ docker run -d \
     --name nickwebdemo \
     --restart=always \
     gowebdemo
+
+#do some integration test
+sleep 10
+
+docker stop nickwebdemo
+
+docker rm nickwebdemo
