@@ -7,8 +7,11 @@ import (
 		 "net/http"
 	)
 
-func getNameLen(name string) int {
-	return len(name)
+func findTheUserName(id uint32) string {
+	return "JamesZhang"
+}
+func getNameLen(id uint32) int {
+	return len(findTheUserName(id))
 }
 
 func main() {
